@@ -200,8 +200,9 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/picasso/proprietary/vendor/lib64/camera/fdconfigvideolite.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/fdconfigvideolite.bin
 
 PRODUCT_PACKAGES += \
-    audio.primary.picasso \
-    liba2dpoffload_picasso \
+    audio.primary.lito \
+    sound_trigger.primary.lito \
+    liba2dpoffload \
     libacdb-fts \
     libacdbloader \
     libacdbrtac \

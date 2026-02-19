@@ -14,7 +14,7 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
-    name: "audio.primary.picasso",
+    name: "audio.primary.lito",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -22,7 +22,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm: {
             srcs: [
-                "proprietary/vendor/lib/hw/audio.primary.picasso.so",
+                "proprietary/vendor/lib/hw/audio.primary.lito.so",
             ],
             shared_libs: [
                 "libbase",
@@ -50,7 +50,7 @@ cc_prebuilt_library_shared {
         },
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/hw/audio.primary.picasso.so",
+                "proprietary/vendor/lib64/hw/audio.primary.lito.so",
             ],
             shared_libs: [
                 "libbase",
@@ -58,7 +58,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libtinyalsa",
                 "libtinycompress",
-                "libaudioroute",
+                "libaudioroute-v34",
                 "libaudioutils",
                 "libexpat",
                 "libhidlbase",
@@ -84,7 +84,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "liba2dpoffload_picasso",
+    name: "sound_trigger.primary.lito",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -92,7 +92,55 @@ cc_prebuilt_library_shared {
     target: {
         android_arm: {
             srcs: [
-                "proprietary/vendor/lib/liba2dpoffload_picasso.so",
+                "proprietary/vendor/lib/hw/sound_trigger.primary.lito.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libtinyalsa",
+                "libaudioroute-v34",
+                "libexpat",
+                "libhardware_legacy",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/sound_trigger.primary.lito.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libtinyalsa",
+                "libaudioroute-v34",
+                "libexpat",
+                "libhardware_legacy",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "liba2dpoffload",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/liba2dpoffload.so",
             ],
             shared_libs: [
                 "libaudioutils",
@@ -100,7 +148,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libtinyalsa",
                 "libtinycompress",
-                "libaudioroute-v34",
+                "libaudioroute",
                 "libexpat",
                 "libc++",
                 "libc",
@@ -110,7 +158,7 @@ cc_prebuilt_library_shared {
         },
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/liba2dpoffload_picasso.so",
+                "proprietary/vendor/lib64/liba2dpoffload.so",
             ],
             shared_libs: [
                 "libaudioutils",
@@ -4493,6 +4541,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libcamera_dirty.so",
             ],
             shared_libs: [
+                "libc++_shared",
                 "liblog",
                 "libm",
                 "libc",
